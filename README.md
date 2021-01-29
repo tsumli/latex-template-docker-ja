@@ -8,7 +8,7 @@ use docker-compose to generate pdf
 docker-compose up
 ```
 
-sty files should be in "./sty" (default titlesec, amsmath, ... are required). 
+sty files should be in "./sty" (titlesec, amsmath, ... are required, so you must download htme from [CTAN](https://www.ctan.org) or delete RequirePackage and corresponding code). 
 ```shell
 mkdir sty
 mv <sty files> ./sty
