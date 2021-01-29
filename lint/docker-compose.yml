@@ -1,0 +1,15 @@
+version: '3'
+services:
+  textlint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../src/:/work/
+      - .textlintrc:/.textlintrc
+      - ./commands.sh:/work/commands.sh
+      - ./prh-rules.yml:/node_modules/textlint-rule-preset-ja-engineering-paper/src/dict/prh-rules.yml
+      
+    command:
+      sh commands.sh
+       

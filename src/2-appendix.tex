@@ -1,0 +1,37 @@
+\documentclass[a4paper,10pt, uplatex, report, openany]{jsbook}
+\begin{document}
+% \appendix
+
+\makeatletter
+\def\@makechapterhead#1{%
+  %%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\thechapter 章
+        \par\nobreak
+        \vskip 15\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  %%%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother
+
+
+\chapter*{{\huge 付録}}
+\addcontentsline{toc}{chapter}{\appendixname}
+\renewcommand{\thesection}{付録 \Alph{section}}
+
+\setcounter{section}{0}
+\section{付録}
+ここに付録．
+
+\end{document}

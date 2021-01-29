@@ -1,0 +1,10 @@
+version: '3'
+services:
+  main:
+    image: "paperist/alpine-texlive-ja"
+    volumes:
+      - ./:/workdir/
+      - ./sty/:/usr/local/texlive/texmf-local/tex/
+
+    command:
+      sh generate.sh

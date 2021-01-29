@@ -1,0 +1,86 @@
+\documentclass[a4paper,10pt, uplatex]{jsreport}
+\RequirePackage{here}
+\RequirePackage{siunitx}
+\PassOptionsToPackage{hyphens}{url}
+\RequirePackage[dvipdfmx]{hyperref, graphicx}
+\hypersetup{
+	colorlinks=false
+}
+\RequirePackage{booktabs}
+\RequirePackage{indentfirst}
+\RequirePackage{caption}
+\RequirePackage{geometry}
+\geometry{
+  left={30mm},
+  right={30mm},
+  top={30mm},
+  bottom={40mm},
+}
+\RequirePackage{docmute}
+\RequirePackage{amsmath, amssymb, amsfonts}
+\RequirePackage{enumerate}
+\numberwithin{equation}{section}
+\RequirePackage{titlesec}
+
+\makeatletter
+\def\@makechapterhead#1{%
+  %%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\thechapter 章
+        \par\nobreak
+        \vskip 15\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  %%%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother
+
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+\newcommand{\product}[2]{\langle #1, #2 \rangle}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \vspace*{2cm}
+
+    \Huge{\underline{論文}}
+    \vspace*{2cm}
+
+    \huge{タイトル}
+    \vspace*{2cm}
+
+    \LARGE{令和0年0月0日提出}
+    \vspace*{2cm}
+
+    \LARGE{
+      \begin{tabular}{ll}
+        指導教員&OOOO
+      \end{tabular}
+    }
+    \vspace*{2cm}
+
+    \LARGE{所属，氏名}
+  \end{center}
+\end{titlepage}
+\input{./src/0-abstract}
+\newpage
+\setcounter{page}{0}
+\thispagestyle{empty}
+\setcounter{tocdepth}{1}
+\tableofcontents
+% \clearpage
+\input{./src/1-introduction}
+\bibliographystyle{unsrt}
+\bibliography{/workdir/cites/references}
+\input{./src/2-appendix}
+\end{document}
