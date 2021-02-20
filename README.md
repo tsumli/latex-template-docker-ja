@@ -8,13 +8,12 @@ use docker-compose to generate pdf
 docker-compose up
 ```
 
-sty files should be in "./sty" (titlesec, amsmath, ... are required, so you must download htme from [CTAN](https://www.ctan.org) or delete RequirePackage and corresponding code). 
+You must download .sty files from [CTAN](https://www.ctan.org) and move them in "sty/" if you use some package (e.g. siunitx, titlesec, ...).
 ```shell
-mkdir sty
 mv <sty files> ./sty
 ```
 
-you can use textlint for japanese.
+"textlint" for japanese is available. Use docker-compose in "lint/".
 ```shell
 cd lint
 docker-compose up
