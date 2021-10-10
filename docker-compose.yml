@@ -1,6 +1,6 @@
 version: '3'
 services:
-  main:
+  make:
     image: "paperist/alpine-texlive-ja"
     volumes:
       - ./:/workdir/
@@ -8,3 +8,16 @@ services:
 
     command:
       sh generate.sh
+
+  lint:
+    build:
+      context: .
+      dockerfile: ./lint/Dockerfile
+    volumes:
+      - ./src/:/work/
+      - ./lint/.textlintrc:/.textlintrc
+      - ./lint/commands.sh:/commands.sh
+      - ./lint/prh-rules.yml:/node_modules/textlint-rule-preset-ja-engineering-paper/src/dict/prh-rules.yml
+      
+    command:
+      sh /commands.sh

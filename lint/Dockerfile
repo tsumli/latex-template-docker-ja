@@ -1,6 +1,6 @@
 FROM node:latest
-MAINTAINER Kazumichi Yamamoto <yamamoto.febc@gmail.com>
 
+RUN npm install -g npm@8.0.0  # Update npm
 RUN npm install -g textlint@latest \
     && npm install -g \
        textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet\
@@ -15,7 +15,7 @@ RUN npm install -g textlint@latest \
        textlint-rule-preset-ja-spacing
        
 WORKDIR /work
-ADD .textlintrc /
+ADD ./lint/.textlintrc /
 
 #ENTRYPOINT ["textlint" , "--config" , "/.textlintrc"]
 #CMD ["-h"]
